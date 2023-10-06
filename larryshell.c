@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.>
+#include <stdlib.h>
 
 
 
@@ -7,20 +7,21 @@ void programLoop();
 
 //setup program loop
 
-int main(){
+int main(int argc, char **argv){
+
+	programLoop();
 
 
-
-
-
-return 0;
+	EXIT_SUCCESS;
 }
 
 
 void programLoop(){
 
-	while(true){
+	do{
+		printf("%s","->");
+		
 
+	}while(1);
 
-		}
 }
