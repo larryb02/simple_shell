@@ -17,6 +17,8 @@ int main(int argc, char **argv){
 
 
 void programLoop(){
+    char *input;
+    char *args;
 
 	do{
 		printf("%s","->");
