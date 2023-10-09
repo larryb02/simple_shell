@@ -23,10 +23,10 @@ int main(int argc, char **argv){
 
 
 void programLoop(void){
-    char *input;
-    char *args;
+char *input;
+char *args;
 	
-    	do{
+    do{
 	printf("%s", "-> ");
 	input = readLine();
 	//args = parseArgs(input);
@@ -37,14 +37,14 @@ void programLoop(void){
 
 char *readLine(void){
 
-	int bufferSize = DEF_BUFFERSIZE;
-	int position = 0;
-	char *buffer = malloc(sizeof(char) * bufferSize);
-	int c;
+int bufferSize = DEF_BUFFERSIZE;
+int position = 0;
+char *buffer = malloc(sizeof(char) * bufferSize);
+int c;
 
 	if(!buffer){
-	fprintf(stderr, "allocation error.\n");
-	exit(EXIT_FAILURE);
+		fprintf(stderr, "allocation error.\n");
+		exit(EXIT_FAILURE);
 	}
 
 	while(1){
@@ -84,9 +84,9 @@ int position = 0;
 
 args = strtok(input, DELIM);
 	while(args != null){
-	tokens[position] = args; 		
+		tokens[position] = args; 		
 
-	position++;	
+		position++;	
 
 	}
 return args;
