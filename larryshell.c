@@ -3,6 +3,7 @@
 #include <string.h>
 
 #define DEF_BUFFERSIZE 1024
+#define TOK_BUFFER 64
 #define DELIM '-'
 
 
@@ -77,15 +78,14 @@ int c;
 
 char **parseArgs(const char *input){
 
-char *args;
-char **tokens = malloc(sizeof(char) * 64);
+char *token;
+char **tokens = malloc(sizeof(char) * TOK_BUFFER);
 int position = 0;
 
 
-args = strtok(input, DELIM);
-	while(args != null){
+token = strtok(input, DELIM);
+	while(token != null){
 		tokens[position] = args; 		
-
 		position++;	
 
 	}
