@@ -5,6 +5,8 @@ Starting by following along with a [tutorial](https://brennan.io/2015/01/16/writ
 - [ ] Load config file
 - [ ] Create shell instance
     - [ ] Process commands 
-        - [ x ] read input, parse arguments
+        - [x] read input, parse arguments
         - [ ] create actual commands
     - [ ] Terminate on signal
+## Problems 
+- programLoop() should print "->" then read input/parse args and that should be the iteration, currently only prints "->" once.
