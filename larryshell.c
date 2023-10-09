@@ -75,14 +75,16 @@ char *readLine(void){
 
 }
 
-char *parseArgs(const char *input){
+char **parseArgs(const char *input){
 
 char *args;
-int c;
+char **tokens = malloc(sizeof(char) * 64);
 int position = 0;
 
-	while(input[position] != '\0'){
-		
+
+args = strtok(input, DELIM);
+	while(args != null){
+	tokens[position] = args; 		
 
 	position++;	
 
