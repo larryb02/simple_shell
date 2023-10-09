@@ -27,14 +27,14 @@ void programLoop(void){
 char *input;
 char **args;
 	
-    do{
+    while(1){
 	printf("%s", "-> ");
 	input = readLine();
 	args = parseArgs(input);
 
 	free(input);
 	free(args);
-	}while(1);
+	}
 	
 
 }
