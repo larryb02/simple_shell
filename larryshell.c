@@ -24,27 +24,27 @@ int main(int argc, char **argv){
 
 
 void programLoop(void){
-char *input;
-char **args;
-	
-    while(1){
-	printf("%s", "-> ");
-	input = readLine();
-	args = parseArgs(input);
+	char *input;
+	char **args;
 
-	free(input);
-	free(args);
+	while(1){
+		printf("%s", "-> ");
+		input = readLine();
+		//args = parseArgs(input);
+
+		free(input);
+		free(args);
 	}
-	
+
 
 }
 
 char *readLine(void){
 
-int bufferSize = DEF_BUFFERSIZE;
-int position = 0;
-char *buffer = malloc(sizeof(char) * bufferSize);
-int c;
+	int bufferSize = DEF_BUFFERSIZE;
+	int position = 0;
+	char *buffer = malloc(sizeof(char) * bufferSize);
+	int c;
 
 	if(!buffer){
 		fprintf(stderr, "allocation error.\n");
@@ -52,45 +52,45 @@ int c;
 	}
 
 	while(1){
-	
-	 c = getchar();
 
-	 if(c == EOF || c == '\0'){
-		buffer[position] = '\0'; 
-		return buffer;
-	 }
-	 else{
-	 	buffer[position] = c;
-	 }
-	 position++;
+		c = getchar();
 
-	if(position >= bufferSize){
-		bufferSize += DEF_BUFFERSIZE;
-		buffer = realloc(buffer, bufferSize);
+		if(c == '\n' || c == EOF){
+			buffer[position] = '\0'; 
+			return buffer;
+		}
+		else{
+			buffer[position] = (char)c;
+		}
+		position++;
 
-		if(!buffer){
-			fprintf(stderr, "allocation error.\n");
-			exit(EXIT_FAILURE);
+		if(position >= bufferSize){
+			bufferSize += DEF_BUFFERSIZE;
+			buffer = realloc(buffer, bufferSize);
+
+			if(!buffer){
+				fprintf(stderr, "allocation error.\n");
+				exit(EXIT_FAILURE);
 			}
 		}
-	
+
 	}
-	
+
 
 }
 
 char **parseArgs(char *input){
-int bufferSize = TOK_BUFFER;
-char *token;
-char **tokens = malloc(sizeof(char) * TOK_BUFFER);
-int position = 0;
+	int bufferSize = TOK_BUFFER;
+	char *token;
+	char **tokens = malloc(sizeof(char) * TOK_BUFFER);
+	int position = 0;
 
-if(!tokens){
-fprintf(stderr, "Allocation error.");
-exit(EXIT_FAILURE);
-}
+	if(!tokens){
+		fprintf(stderr, "Allocation error.");
+		exit(EXIT_FAILURE);
+	}
 
-token = strtok(input, DELIM);
+	token = strtok(input, DELIM);
 	while(token != NULL){
 		tokens[position] = token; 		
 		position++;	
@@ -100,9 +100,9 @@ token = strtok(input, DELIM);
 			if(!tokens){
 				fprintf(stderr, "Allocation error.");
 				exit(EXIT_FAILURE);
-				}
-		
+			}
+
 		}
 	}
-return tokens;
+	return tokens;
 }
