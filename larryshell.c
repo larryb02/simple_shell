@@ -4,7 +4,7 @@
 
 #define DEF_BUFFERSIZE 1024
 #define TOK_BUFFER 64
-#define DELIM "-"
+#define DELIM " "
 
 
 
